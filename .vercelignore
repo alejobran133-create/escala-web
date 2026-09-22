@@ -1,0 +1,9 @@
+artifacts/
+/assets/
+docs/
+scripts/
+.pnpm-cache/
+.pnpm-state/
+.pnpm-store/
+*.pdf
+*.tsbuildinfo
