@@ -24,7 +24,7 @@ Nueve imágenes editoriales generadas para esta revisión en public/images/brand
 
 ## Pendientes
 Aprobación visual, HEX definitivo, Canva Sans autorizada, confirmación de licencia web de Fineday, teléfono/WhatsApp empresarial si se desea publicar y casos autorizados. El descriptor BUSINESS SOLUTIONS, el correo y el Instagram ya fueron suministrados por el usuario.
-Hosting activo en Vercel (`bitiars-projects/escala-web`) y URL de producción https://escala-web-psi.vercel.app/. Pendientes: dominio propio, canonical, sitemap, imagen social y requisitos legales de la publicación.
+Hosting activo en Vercel (`bitiars-projects/escala-web`) con dominio de producción https://escalabusiness.company/ y alias técnico https://escala-web-psi.vercel.app/. Repositorio público: https://github.com/alejobran133-create/escala-web. Pendientes: canonical, sitemap, imagen social y requisitos legales de la publicación.
 La indexación sigue desactivada. El envío del formulario está implementado, pero falta que el titular confirme el enlace de activación que FormSubmit envió a escalabusinessco@gmail.com. La respuesta real del proveedor fue HTTP 200 con `success: false` y mensaje de activación pendiente; aún no se verificó entrega al buzón. El sitio ya es públicamente accesible; definir el aviso propio de tratamiento de datos y confirmar la activación en el dominio de Vercel.
 
 ## No inventar
