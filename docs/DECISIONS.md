@@ -159,3 +159,9 @@ El usuario autorizó publicar el proyecto en GitHub. Se creó el repositorio pú
 ## 2026-09-22 — Logo Business Solutions S.A.S.
 
 El usuario suministró el PNG oficial `ESCALA (2).png` de 6250 × 6250 px. Se copió sin alteraciones a `public/brand/escala-logo-sas.png` y se actualizó la cabecera y el icono de la pestaña para usarlo. El descriptor visible ahora dice BUSINESS SOLUTIONS S.A.S. Los logos anteriores se conservan como historial; no se recreó ni modificó el arte recibido.
+
+## 2026-09-22 — Portada animada
+
+El usuario pidió sustituir la fotografía inicial por una animación de mayor impacto visual. Se reemplazó la foto por una composición editorial SVG/CSS con planos, órbitas, nodos y una ruta luminosa en movimiento. No se añadió video ni dependencia nueva; `hero.webp` queda conservada sin mostrarse. La escena es decorativa para tecnologías de asistencia y se detiene con la preferencia de movimiento reducido. El titular y los CTA permanecen legibles sobre una veladura borgoña.
+
+La compilación local de producción terminó correctamente. La suite funcional pasó 153 comprobaciones en cinco tamaños, sin desbordamiento horizontal ni errores de navegador/HTTP; las capturas de escritorio y móvil se revisaron en `artifacts/qa-hero-motion-prod/`. Una primera ejecución contra el servidor de desarrollo se interrumpió por errores de su conexión de recarga; la ejecución definitiva fue contra el servidor local de producción.

@@ -44,7 +44,7 @@ No hay tests unitarios ni auditoría completa de WCAG/Lighthouse.
 - src/content/home.ts: soluciones y proceso.
 - public/brand/: logo web vigente Business Solutions S.A.S. y versiones anteriores conservadas.
 - assets/brand/: PDF vigente suministrado por el usuario y PDF anterior conservado.
-- public/images/brand-series/: nueve imágenes WebP vigentes creadas para la portada, las siete capacidades y el proceso. El stock previo en services/ y process-planning.jpg se conserva sin mostrar.
+- public/images/brand-series/: imágenes WebP vigentes para las siete capacidades y el proceso. La antigua foto de portada y el stock previo se conservan sin mostrar.
 - scripts/qa.cjs: comprobación funcional.
 - artifacts/qa-mail/: evidencias vigentes.
 - docs/PROJECT_CONTEXT.md: alcance y pendientes.

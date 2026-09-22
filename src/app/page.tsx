@@ -4,6 +4,7 @@ import { ContactForm } from "@/components/contact-form";
 import { Icon } from "@/components/icon";
 import { ServiceExplorer } from "@/components/service-explorer";
 import { DisciplineTicker } from "@/components/discipline-ticker";
+import { HeroMotion } from "@/components/hero-motion";
 import { steps } from "@/content/home";
 
 export default function Home() {
@@ -11,8 +12,7 @@ export default function Home() {
     <Header />
     <main id="contenido">
       <section id="inicio" className="hero" aria-labelledby="hero-title">
-        <div className="hero-image"><Image src="/images/brand-series/hero.webp" alt="Manos analizando una ruta de negocio y documentos estratégicos sobre una mesa" fill preload sizes="100vw" /></div>
-        <div className="hero-wash" aria-hidden="true" />
+        <HeroMotion />
         <div className="shell hero-inner">
           <div className="hero-copy">
             <p className="eyebrow">ESCALA · Soluciones empresariales</p>
