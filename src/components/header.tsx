@@ -28,7 +28,6 @@ export function Header() {
         <a href="#soluciones" onClick={close}>Soluciones</a>
         <a href="#proceso" onClick={close}>Cómo trabajamos</a>
         <Modal label="Sobre ESCALA" title="Una visión integral de tu negocio" className="nav-button" arrow={false}>
-          <p>ESCALA es una firma integral de soluciones empresariales.</p>
           <p>Estrategia, diseño y tecnología para construir mejores negocios.</p>
           <p className="dialog-quote">Analizamos antes de avanzar.</p>
         </Modal>
