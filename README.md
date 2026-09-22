@@ -42,7 +42,7 @@ No hay tests unitarios ni auditoría completa de WCAG/Lighthouse.
 - src/assets/fonts/: Fineday StyleOne, archivo local suministrado por el usuario.
 - src/components/: Brand, Header, Icon, Modal, ContactForm, ServiceExplorer y DisciplineTicker. ServiceVisual y SolutionCard se conservan como componentes anteriores sin montar.
 - src/content/home.ts: soluciones y proceso.
-- public/brand/: logo web vigente Business Solutions y versión anterior conservada.
+- public/brand/: logo web vigente Business Solutions S.A.S. y versiones anteriores conservadas.
 - assets/brand/: PDF vigente suministrado por el usuario y PDF anterior conservado.
 - public/images/brand-series/: nueve imágenes WebP vigentes creadas para la portada, las siete capacidades y el proceso. El stock previo en services/ y process-planning.jpg se conserva sin mostrar.
 - scripts/qa.cjs: comprobación funcional.
@@ -59,7 +59,7 @@ next dev añade un bloque informativo de Next.js a AGENTS.md, preservando las re
 ## Límites de esta fase
 Correo e Instagram proporcionados por el usuario están publicados como enlaces directos: escalabusinessco@gmail.com y @_escalabusiness. El formulario envía los cuatro campos al endpoint AJAX de FormSubmit; un POST nativo sirve de respaldo cuando JavaScript no funciona. El servicio retiene las solicitudes hasta 30 días y las remitirá al correo después de su activación. Una prueba real devolvió activación pendiente y generó el correo de confirmación para escalabusinessco@gmail.com. Eddie debe abrirlo y confirmar el formulario antes de considerar verificada la recepción. La web no almacena los datos. Falta definir el aviso propio de tratamiento de datos; el sitio ya está públicamente accesible, aunque mantiene `noindex`. Referencias del proveedor: https://formsubmit.co/documentation y https://formsubmit.co/help.
 Proyectos sin casos inventados. Las escenas editoriales generadas son representaciones de actividades, no equipo, clientes ni resultados de ESCALA. Fineday StyleOne se integró desde el ZIP entregado; Canva Sans y la verificación de derechos web de Fineday siguen pendientes.
-Logo oficial vigente con el descriptor BUSINESS SOLUTIONS, actualizado desde el PDF ajustado por el usuario. La versión anterior se conserva como historial.
+Logo oficial vigente con el descriptor BUSINESS SOLUTIONS S.A.S., suministrado por el usuario en PNG. Las versiones anteriores se conservan como historial.
 Despliegue activo en Vercel con dominio principal https://escalabusiness.company/ y alias técnico https://escala-web-psi.vercel.app/. Repositorio público: https://github.com/alejobran133-create/escala-web. La rama `main` sigue `origin/main`; el despliegue original se realizó por CLI y la integración automática de despliegues desde GitHub no se ha verificado.
 ESLint 9 se mantiene por compatibilidad con sus plugins; su aviso de fin de soporte está documentado.
 

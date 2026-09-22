@@ -49,7 +49,7 @@ Prompts finales usados con la herramienta integrada de generación (todos: fotog
 
 Los JPG de stock anteriores permanecen en public/images/services/ y process-planning.jpg como historial, pero no se renderizan. Su procedencia se documentó en decisiones anteriores; no se presentan como material de ESCALA.
 ## Logo y cabecera
-Logo vigente: assets/brand/ESCALA-current.pdf y public/brand/escala-logo-business-solutions.png, suministrado por el usuario con el descriptor BUSINESS SOLUTIONS. La versión previa se conserva en el repositorio como historial.
+Logo vigente: public/brand/escala-logo-sas.png, suministrado por el usuario con el descriptor BUSINESS SOLUTIONS S.A.S. Las versiones previas se conservan en el repositorio como historial.
 Barra completa borgoña, logo blanco sin recuadro visible mediante encuadre y mezcla CSS lighten. El PNG original conserva su fondo.
 Revisar la mezcla si se adopta un borgoña más oscuro. Enlaces y focos de cabecera blancos; Contacto en cápsula clara con flecha borgoña. El control móvil usa cápsula delineada e icono en círculo claro.
 El descriptor vigente es BUSINESS SOLUTIONS.

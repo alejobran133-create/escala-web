@@ -18,7 +18,7 @@ El usuario solicitó simplificar la Home porque resultaba cargada, aumentar la i
 
 ## Recursos
 Fineday StyleOne del ZIP suministrado por el usuario se usa localmente en palabras destacadas. El archivo no incluía licencia; confirmar derecho de incrustación web para la publicación ya realizada.
-Logo vigente ajustado por el usuario: assets/brand/ESCALA-current.pdf y public/brand/escala-logo-business-solutions.png, con descriptor BUSINESS SOLUTIONS. La versión anterior permanece en assets/brand/ESCALA-original.pdf y public/brand/escala-logo-oficial.png solo como historial. Encaje CSS y mezcla lighten integran el fondo del PDF en la cabecera, sin redibujar el logo.
+Logo vigente suministrado por el usuario: public/brand/escala-logo-sas.png, con descriptor BUSINESS SOLUTIONS S.A.S. Los PDF y PNG anteriores permanecen como historial. Encaje CSS y mezcla lighten integran el fondo del PNG en la cabecera, sin redibujar el logo.
 Las imágenes genéricas de oficina y montaña ya no se muestran. Se conservan como recursos históricos.
 Nueve imágenes editoriales generadas para esta revisión en public/images/brand-series/: portada, siete capacidades y proceso. Representan actividades posibles, no equipo, oficinas, proyectos o resultados reales de ESCALA. El stock anterior en public/images/services/ y process-planning.jpg queda conservado sin mostrarse. SVG anteriores conservados sin montar.
 

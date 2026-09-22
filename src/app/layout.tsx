@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   title: { default: "ESCALA | Soluciones empresariales", template: "%s | ESCALA" },
   description: "Estrategia, diseño y tecnología para construir mejores negocios.",
   robots: { index: false, follow: false },
-  icons: { icon: "/brand/escala-logo-oficial.png" },
+  icons: { icon: "/brand/escala-logo-sas.png" },
   openGraph: {
     title: "ESCALA | Soluciones empresariales",
     description: "Analizamos antes de avanzar. Estrategia, diseño y tecnología para construir mejores negocios.",

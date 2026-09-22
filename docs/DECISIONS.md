@@ -155,3 +155,7 @@ Después se hizo un segundo despliegue de producción con Node 24.x fijado (`dpl
 El usuario compró y autorizó `escalabusiness.company` como dominio oficial. El dominio quedó registrado en Vercel, asociado al proyecto `bitiars-projects/escala-web` y configurado para producción. Tras finalizar la propagación DNS, `https://escalabusiness.company/` respondió HTTP 200 con el título esperado. El alias técnico de Vercel se conserva.
 
 El usuario autorizó publicar el proyecto en GitHub. Se creó el repositorio público `alejobran133-create/escala-web`, se excluyeron `artifacts/` y archivos locales o sensibles mediante `.gitignore`, y se publicó `main`. Antes del primer commit se ejecutaron correctamente `pnpm lint`, `pnpm typecheck` y `pnpm build`. La integración automática entre GitHub y Vercel no se considera verificada; los despliegues previos fueron realizados por CLI.
+
+## 2026-09-22 — Logo Business Solutions S.A.S.
+
+El usuario suministró el PNG oficial `ESCALA (2).png` de 6250 × 6250 px. Se copió sin alteraciones a `public/brand/escala-logo-sas.png` y se actualizó la cabecera y el icono de la pestaña para usarlo. El descriptor visible ahora dice BUSINESS SOLUTIONS S.A.S. Los logos anteriores se conservan como historial; no se recreó ni modificó el arte recibido.
