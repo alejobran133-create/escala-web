@@ -191,3 +191,9 @@ La compilación local de producción terminó correctamente. La suite funcional 
 El usuario consideró exagerada y poco estética la versión anterior. La dirección vigente reduce el símbolo y la base, retira el mapa de órbitas, nodos, haces de luz y la nota lateral que competían con el contenido. El relieve del PNG oficial sigue presente con menos capas y un giro casi imperceptible; el fondo conserva solo una gradación borgoña suave. En móvil se acortó la escena para recuperar la acción principal sin perder la separación entre pieza y titular. La tarima anterior queda en el historial de Git, no se renderiza.
 
 La compilación local de producción terminó correctamente. La suite funcional pasó 158 comprobaciones en cinco tamaños, sin desbordamiento horizontal ni errores de navegador; capturas revisadas en `artifacts/qa-hero-refined-final/`. Se desplazó la pieza ligeramente a la derecha en tableta para proteger el texto.
+
+## 2026-09-23 — Interacción 3D contenida
+
+Tras aprobar la dirección visual más sobria, el usuario pidió que la pieza tuviera movimiento e interacción. El símbolo oficial ahora oscila lentamente sin desplazarse de la tarima, se inclina ligeramente con el cursor y gira 360° al hacer clic, tocarlo o activarlo con teclado. Una cara posterior del mismo PNG mantiene la marca legible durante el giro; los cantos son neutros. La composición editorial, el tamaño y la base baja permanecen. Se respeta `prefers-reduced-motion` y no se agregó ninguna dependencia.
+
+La compilación y ESLint finalizaron correctamente. La suite funcional pasó 158 comprobaciones en cinco tamaños, sin errores de navegador ni desbordamiento, con capturas en `artifacts/qa-hero-interactive/`. La prueba focalizada confirmó inclinación con cursor, vuelta con clic y teclado, y respuesta al toque en móvil. El formulario siguió simulado en la suite, sin envíos reales.

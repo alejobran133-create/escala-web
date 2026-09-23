@@ -58,7 +58,7 @@ El descriptor vigente es BUSINESS SOLUTIONS.
 ## Iconografía, radios, sombras y animación
 Iconos lineales locales, sin librería adicional. Cápsulas para acciones y navegación interactiva; composición editorial de bordes rectos en paneles e imágenes.
 Sin tarjetas decorativas generales; sombra contenida en diálogos y en el paso de proceso activo.
-Cambio de fotografía en servicios: entrada de 300ms y zoom ligero al pasar el cursor. En la portada solo hay un giro muy lento del símbolo y el movimiento continuo de las cinco disciplinas dentro de la banda blanca. Entrada sutil del mensaje principal; hover de controles: 220ms con ligera elevación. El recorrido de servicios requiere activación del visitante. Sin descarga de video ni parallax.
+Cambio de fotografía en servicios: entrada de 300ms y zoom ligero al pasar el cursor. En la portada el símbolo flota con oscilación lenta, responde levemente al cursor y completa un giro tridimensional al hacer clic, tocarlo o pulsar Enter/Espacio. La banda blanca de disciplinas se mueve de forma continua. Entrada sutil del mensaje principal; hover de controles: 220ms con ligera elevación. El recorrido de servicios requiere activación del visitante. Sin descarga de video ni parallax.
 prefers-reduced-motion desactiva animación y desplazamiento suave.
 
 ## Recursos históricos fuera de la Home

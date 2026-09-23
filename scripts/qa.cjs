@@ -53,13 +53,13 @@ const titles=['Estrategia & Research','Estructuración Empresarial','Diseño & M
  check('Ticker has all five disciplines',await page.locator('.hero-ticker-group').first().locator('span').count()===5);
  check('Ticker has no pause control',await page.locator('.ticker-toggle').count()===0);
  await page.emulateMedia({reducedMotion:'no-preference'});
- check('Hero 3D camera moves when motion is allowed',await page.locator('.hero-mark-world').evaluate(e=>getComputedStyle(e).animationName==='hero-camera'));
+ check('Hero 3D mark floats when motion is allowed',await page.locator('.hero-mark-float').evaluate(e=>getComputedStyle(e).animationName==='hero-float'));
  check('Ticker rolls when motion is allowed',await page.locator('.hero-ticker-track').evaluate(e=>getComputedStyle(e).animationName==='ticker-roll'));
  const firstPosition=await page.locator('.hero-ticker-track').evaluate(e=>getComputedStyle(e).transform);
  await page.waitForTimeout(180);
  check('Ticker keeps moving',await page.locator('.hero-ticker-track').evaluate((e,previous)=>getComputedStyle(e).transform!==previous,firstPosition));
  await page.emulateMedia({reducedMotion:'reduce'});
- check('Hero 3D camera respects reduced motion',await page.locator('.hero-mark-world').evaluate(e=>getComputedStyle(e).animationName==='none'));
+ check('Hero 3D mark respects reduced motion',await page.locator('.hero-mark-float').evaluate(e=>getComputedStyle(e).animationName==='none'));
  check('Ticker respects reduced motion',await page.locator('.hero-ticker-track').evaluate(e=>getComputedStyle(e).animationName==='none'));
  check('Preview noindex',(await page.locator('meta[name="robots"]').getAttribute('content')).includes('noindex'));
  await page.goto(baseURL,{waitUntil:'networkidle'});
