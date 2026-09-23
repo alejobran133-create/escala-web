@@ -6,7 +6,7 @@ ESCALA es una firma integral de soluciones empresariales. Mensajes rectores: “
 El usuario solicitó simplificar la Home porque resultaba cargada, aumentar la interacción y utilizar imágenes relacionadas con los servicios. Esta instrucción sustituye la exigencia de replicar literalmente la composición anterior. Se conserva la identidad editorial y la cabecera borgoña solicitada.
 
 ## Implementación
-- Ruta /: cabecera, portada con animación vectorial, explorador de siete servicios, proceso desplegable y cierre de contacto.
+- Ruta /: cabecera, portada con animación vectorial y escultura 3D en CSS, explorador de siete servicios, proceso desplegable y cierre de contacto.
 - Explorador: selección por capacidad; solo un servicio visible. Cambian título, descripción, fotografía, mensaje y etiquetas del servicio.
 - Desktop/tablet: siete pestañas horizontales con flechas izquierda/derecha y Home/End. Móvil: pestañas desplazables horizontalmente.
 - Botón Siguiente solución con recorrido circular por las siete capacidades.

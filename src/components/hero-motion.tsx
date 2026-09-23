@@ -59,6 +59,22 @@ export function HeroMotion() {
       <path d="M 112 656 H 353 M 815 624 H 960 M 821 637 H 915" stroke="#f4dce2" strokeOpacity=".2" />
       <path d="M 170 639 V 671 M 314 639 V 671 M 873 607 V 641" stroke="#f4dce2" strokeOpacity=".3" />
     </svg>
+    <div className="hero-depth-stage">
+      <div className="hero-depth-world">
+        <div className="hero-depth-halo" />
+        <div className="hero-depth-ring hero-depth-ring-back" />
+        <div className="hero-depth-ring hero-depth-ring-vertical" />
+        <div className="hero-depth-ring hero-depth-ring-diagonal" />
+        <div className="hero-depth-ring hero-depth-ring-front" />
+        <div className="hero-depth-orb">
+          <span className="hero-depth-orb-inner" />
+          <span className="hero-depth-orb-glint" />
+        </div>
+        <div className="hero-depth-satellite hero-depth-satellite-one" />
+        <div className="hero-depth-satellite hero-depth-satellite-two" />
+        <div className="hero-depth-satellite hero-depth-satellite-three" />
+      </div>
+    </div>
     <div className="hero-motion-vignette" />
   </div>;
 }

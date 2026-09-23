@@ -60,6 +60,22 @@ svg { width: 24px; height: 24px; flex-shrink: 0; }
 .hero { position: relative; min-height: min(750px, calc(100svh - 94px)); color: #fff; background: #28151f; isolation: isolate; overflow: hidden; }
 .hero-motion { position: absolute; inset: 0; z-index: -1; overflow: hidden; pointer-events: none; background: radial-gradient(circle at 79% 42%, #71324a 0%, #3c1d2d 37%, #21141e 75%); }
 .hero-motion-map { position: absolute; width: min(1150px, 88vw); min-width: 760px; height: auto; right: -3%; top: 50%; transform: translateY(-50%); }
+.hero-depth-stage { position: absolute; width: min(760px, 62vw); height: 100%; top: 0; right: 0; perspective: 1000px; perspective-origin: 55% 48%; }
+.hero-depth-world { position: absolute; width: 540px; height: 540px; left: 51%; top: 50%; margin: -270px 0 0 -270px; transform-style: preserve-3d; transform: rotateX(-17deg) rotateY(-24deg) rotateZ(-11deg); animation: hero-camera 18s ease-in-out infinite alternate; }
+.hero-depth-halo { position: absolute; inset: -160px; border-radius: 50%; background: radial-gradient(circle, #b8899a33 0%, #9a5c7533 29%, #cc9db21a 39%, transparent 63%); transform: translateZ(-190px); filter: blur(10px); animation: hero-breathe 8s ease-in-out infinite alternate; }
+.hero-depth-ring { position: absolute; inset: 28px; border: 2px solid #f1d5df9e; border-radius: 50%; box-shadow: 0 0 23px #f4c4d45c, inset 0 0 22px #f4c4d43a; transform-style: preserve-3d; }
+.hero-depth-ring::before { content: ""; position: absolute; inset: 13px; border: 1px solid #f4dce254; border-radius: 50%; }
+.hero-depth-ring-back { transform: translateZ(-125px) scale(1.13); border-color: #d19bad60; box-shadow: 0 0 30px #d59cad30; }
+.hero-depth-ring-vertical { transform: rotateY(73deg) rotateX(13deg) translateZ(25px); border-width: 4px; border-color: #ffece1b0; box-shadow: 0 0 27px #ffe9e097, inset 0 0 24px #ffe9e05c; }
+.hero-depth-ring-diagonal { transform: rotateX(67deg) rotateY(-24deg) translateZ(44px); border-width: 3px; border-color: #e7adc1b8; animation: hero-ring-precess 16s ease-in-out infinite alternate; }
+.hero-depth-ring-front { transform: translateZ(160px) scale(.79); border-color: #fff0e3bf; border-width: 3px; box-shadow: 0 0 29px #ffe0de91, inset 0 0 25px #ffe0de57; }
+.hero-depth-orb { position: absolute; width: 280px; height: 280px; top: 130px; left: 130px; border-radius: 50%; transform: translateZ(58px); background: radial-gradient(circle at 30% 24%, #fff5e9 0%, #f6dbe0 7%, #d5a4b4 22%, #9b526d 47%, #57243c 72%, #2a1426 100%); box-shadow: inset -20px -25px 45px #1d0b20b8, inset 8px 6px 28px #fff4ed9c, 0 24px 65px #180711a6, 0 0 100px #c6849e9c; animation: hero-orb-hover 7s ease-in-out infinite alternate; }
+.hero-depth-orb-inner { position: absolute; inset: 14px; border: 1px solid #fff3e867; border-radius: 50%; transform: rotate(-28deg) scaleY(.57); box-shadow: 0 0 20px #fff2e75e; }
+.hero-depth-orb-glint { position: absolute; width: 90px; height: 47px; top: 32px; left: 55px; border-radius: 50%; background: #fffaf3a8; filter: blur(24px); transform: rotate(-27deg); }
+.hero-depth-satellite { position: absolute; width: 13px; height: 13px; border-radius: 50%; background: #fff4e7; box-shadow: 0 0 0 7px #f5dce344, 0 0 25px 8px #f2c2d6; }
+.hero-depth-satellite-one { top: 91px; left: 126px; transform: translateZ(168px); }
+.hero-depth-satellite-two { top: 398px; left: 471px; transform: translateZ(80px) scale(.72); }
+.hero-depth-satellite-three { top: 62px; left: 376px; transform: translateZ(-85px) scale(.56); }
 .hero-motion-grid { opacity: .65; }
 .hero-motion-aura { animation: hero-breathe 9s ease-in-out infinite alternate; transform-origin: 642px 380px; }
 .hero-motion-sheets { animation: hero-float 12s ease-in-out infinite alternate; transform-origin: 642px 380px; }
@@ -104,6 +120,9 @@ svg { width: 24px; height: 24px; flex-shrink: 0; }
 @keyframes hero-route-flow { to { stroke-dashoffset: -256; } }
 @keyframes hero-node-pulse { 0%, 100% { transform: scale(.78); opacity: .55; } 35% { transform: scale(1.22); opacity: 1; } }
 @keyframes hero-sweep { 0%, 15% { transform: rotate(18deg) translateX(28vw); opacity: 0; } 48% { opacity: 1; } 85%, 100% { transform: rotate(18deg) translateX(-62vw); opacity: 0; } }
+@keyframes hero-camera { from { transform: rotateX(-22deg) rotateY(-31deg) rotateZ(-13deg) translateY(10px); } to { transform: rotateX(-11deg) rotateY(-9deg) rotateZ(-5deg) translateY(-10px); } }
+@keyframes hero-ring-precess { from { transform: rotateX(67deg) rotateY(-24deg) translateZ(44px); } to { transform: rotateX(52deg) rotateY(16deg) translateZ(72px); } }
+@keyframes hero-orb-hover { from { transform: translateZ(50px) translateY(8px); } to { transform: translateZ(76px) translateY(-8px); } }
 
 .solutions-section { padding-block: 103px 115px; }
 .section-heading { display: flex; justify-content: space-between; align-items: flex-end; gap: 35px; margin-bottom: 55px; }
@@ -265,6 +284,7 @@ svg { width: 24px; height: 24px; flex-shrink: 0; }
   .header-contact { align-self: flex-start; margin-top: 7px; }
   .hero { min-height: 680px; }
   .hero-motion-map { width: 850px; min-width: 850px; right: -180px; top: 250px; }
+  .hero-depth-stage { width: 540px; height: 540px; top: 8px; right: -62px; transform: scale(.76); transform-origin: top right; }
   .hero-motion-vignette { background: linear-gradient(0deg, #1d111af7 0%, #21131cdb 34%, #2b18248c 70%, #26141e70 100%); }
   .hero-inner { min-height: 614px; align-items: flex-end; padding-block: 72px 66px; }
   .hero .eyebrow { font-size: 11px; margin-bottom: 22px; }

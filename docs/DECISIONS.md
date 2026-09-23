@@ -165,3 +165,9 @@ El usuario suministró el PNG oficial `ESCALA (2).png` de 6250 × 6250 px. Se co
 El usuario pidió sustituir la fotografía inicial por una animación de mayor impacto visual. Se reemplazó la foto por una composición editorial SVG/CSS con planos, órbitas, nodos y una ruta luminosa en movimiento. No se añadió video ni dependencia nueva; `hero.webp` queda conservada sin mostrarse. La escena es decorativa para tecnologías de asistencia y se detiene con la preferencia de movimiento reducido. El titular y los CTA permanecen legibles sobre una veladura borgoña.
 
 La compilación local de producción terminó correctamente. La suite funcional pasó 153 comprobaciones en cinco tamaños, sin desbordamiento horizontal ni errores de navegador/HTTP; las capturas de escritorio y móvil se revisaron en `artifacts/qa-hero-motion-prod/`. Una primera ejecución contra el servidor de desarrollo se interrumpió por errores de su conexión de recarga; la ejecución definitiva fue contra el servidor local de producción.
+
+## 2026-09-23 — Profundidad 3D en portada
+
+El usuario pidió que la animación inicial tuviera mayor sensación tridimensional e impacto visual. Se añadió una escultura orbital en CSS 3D con perspectiva real, anillos a cuatro profundidades, esfera sombreada, satélites y movimiento lento de cámara. Se conservó la ruta vectorial anterior como fondo y una veladura para la lectura. No se añadieron videos, paquetes ni datos comerciales ficticios. La escena sigue siendo decorativa para tecnologías de asistencia y se detiene con movimiento reducido.
+
+La compilación de producción y ESLint terminaron correctamente. La suite pasó 155 comprobaciones en cinco tamaños, incluidas las nuevas verificaciones de movimiento de cámara y movimiento reducido, sin desbordamiento ni errores de navegador. Se revisaron las capturas de escritorio y móvil en `artifacts/qa-hero-3d-final/`.
