@@ -23,7 +23,6 @@ export default function Home() {
               <a href="#proceso" className="hero-process-link">Conoce nuestro proceso <span aria-hidden="true">↗</span></a>
             </div>
           </div>
-          <div className="hero-side-note" aria-hidden="true"><span>VISIÓN / ACCIÓN</span><i />Una mirada integral para cada decisión.</div>
         </div>
         <DisciplineTicker />
       </section>

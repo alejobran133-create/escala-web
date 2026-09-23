@@ -28,7 +28,7 @@ fs.mkdirSync(output, { recursive: true });
         podiumVisible: (() => {
           const front = document.querySelector('.hero-mark-podium path:nth-of-type(2)').getBoundingClientRect();
           const ticker = document.querySelector('.hero-ticker').getBoundingClientRect();
-          return front.height > 30 && front.top < ticker.top - 25;
+          return front.height > 20 && front.top < ticker.top - 20;
         })(),
       }));
       await page.screenshot({ path: path.join(output, `${label}.png`), animations: 'disabled' });
