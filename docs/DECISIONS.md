@@ -179,3 +179,9 @@ El usuario suministró `ESCALA (4).png`, una silueta blanca con fondo transparen
 La compilación local de producción pasó. La suite funcional pasó 155 comprobaciones en cinco tamaños, sin desbordamiento ni errores de navegador; capturas revisadas en `artifacts/qa-hero-mark-final/`. El formulario se simuló durante la suite y no se enviaron solicitudes reales.
 
 El despliegue de producción quedó `Ready` y asociado a `https://escalabusiness.company/`. La URL pública respondió 200 y contiene el símbolo. La prueba completa en producción se detuvo tras las capturas de escritorio, portátil y tableta por una espera prolongada del navegador; una comprobación focalizada posterior en 390 y 320 px confirmó HTTP 200, PNG cargado y ausencia de desbordamiento, con capturas en `artifacts/hero-live-smoke/`. No se atribuyó esa espera a un fallo de la página sin evidencia.
+
+## 2026-09-23 — Tarima y símbolo en alto relieve
+
+El usuario pidió montar el símbolo en una tarima, de frente al público y con acabado más profesional. Se redujo el giro lateral de la pieza para privilegiar su silueta original, se afinó la extrusión y se construyó una tarima arquitectónica en SVG con superficie superior, cara frontal, cantos e iluminación sutil. La ruta vectorial de fondo se atenuó para que la pieza sea el foco. Se corrigió la altura de la escena para que el frente del pedestal quede dentro de la portada y se separó el texto de la tarima en móviles. No se añadieron dependencias ni se modificó el PNG oficial.
+
+La compilación local de producción terminó correctamente. La suite funcional pasó 160 comprobaciones en cinco tamaños, incluida la visibilidad del frente de la tarima; no encontró desbordamiento ni errores de navegador. Se revisaron las capturas de escritorio y móvil en `artifacts/qa-podium-final/`. La comprobación del formulario volvió a usar respuestas simuladas, sin enviar solicitudes reales.

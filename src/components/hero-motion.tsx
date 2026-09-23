@@ -63,8 +63,37 @@ export function HeroMotion() {
     </svg>
     <div className="hero-mark-stage">
       <div className="hero-mark-aura" />
-      <div className="hero-mark-floor hero-mark-floor-outer" />
-      <div className="hero-mark-floor hero-mark-floor-inner" />
+      <div className="hero-mark-spotlight" />
+      <svg className="hero-mark-podium" viewBox="0 0 760 240" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="podium-top" x1="94" y1="101" x2="670" y2="172" gradientUnits="userSpaceOnUse">
+            <stop stopColor="#bd899a" />
+            <stop offset=".47" stopColor="#85415d" />
+            <stop offset="1" stopColor="#54243a" />
+          </linearGradient>
+          <linearGradient id="podium-front" x1="380" y1="146" x2="380" y2="230" gradientUnits="userSpaceOnUse">
+            <stop stopColor="#793a54" />
+            <stop offset=".2" stopColor="#52243b" />
+            <stop offset="1" stopColor="#2a1525" />
+          </linearGradient>
+          <linearGradient id="podium-trim" x1="20" y1="156" x2="740" y2="156" gradientUnits="userSpaceOnUse">
+            <stop stopColor="#e4b6c5" stopOpacity=".18" />
+            <stop offset=".5" stopColor="#fff0de" stopOpacity=".88" />
+            <stop offset="1" stopColor="#e4b6c5" stopOpacity=".22" />
+          </linearGradient>
+          <filter id="podium-shadow" x="0" y="0" width="760" height="240" filterUnits="userSpaceOnUse">
+            <feGaussianBlur stdDeviation="13" />
+          </filter>
+        </defs>
+        <ellipse cx="380" cy="222" rx="323" ry="15" fill="#120913" fillOpacity=".65" filter="url(#podium-shadow)" />
+        <path d="M76 108H684L740 150H20L76 108Z" fill="url(#podium-top)" stroke="#f7dce0" strokeOpacity=".56" />
+        <path d="M20 150H740L704 225H56L20 150Z" fill="url(#podium-front)" stroke="#e4acbd" strokeOpacity=".5" />
+        <path d="M20 150L56 225L76 108" fill="#2d1728" fillOpacity=".5" />
+        <path d="M740 150L704 225L684 108" fill="#9a566f" fillOpacity=".36" />
+        <path d="M20 151H740M34 161H726" stroke="url(#podium-trim)" strokeWidth="2" />
+        <path d="M86 205H674" stroke="#db9fb4" strokeOpacity=".32" />
+      </svg>
+      <div className="hero-mark-contact" />
       <div className="hero-mark-world">
         {Array.from({ length: 11 }, (_, index) =>
           <Image
@@ -75,7 +104,7 @@ export function HeroMotion() {
             sizes="(max-width: 760px) 440px, 600px"
             alt=""
             className="hero-mark-slice"
-            style={{ transform: `translateZ(${-76 + index * 8}px)` }}
+            style={{ transform: `translateZ(${-36 + index * 4}px)` }}
           />
         )}
         <Image

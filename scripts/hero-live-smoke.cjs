@@ -13,7 +13,7 @@ fs.mkdirSync(output, { recursive: true });
     headless: true,
   });
   try {
-    for (const [label, width, height] of [['mobile', 390, 844], ['small-mobile', 320, 740]]) {
+    for (const [label, width, height] of [['desktop', 1440, 900], ['mobile', 390, 844], ['small-mobile', 320, 740]]) {
       const page = await browser.newPage({ viewport: { width, height }, reducedMotion: 'reduce' });
       const response = await page.goto(baseURL, { waitUntil: 'domcontentloaded', timeout: 30000 });
       const mark = page.locator('.hero-mark-face');
@@ -25,9 +25,17 @@ fs.mkdirSync(output, { recursive: true });
       const state = await page.evaluate(() => ({
         markLoaded: document.querySelector('.hero-mark-face')?.naturalWidth > 0,
         overflow: document.documentElement.scrollWidth > innerWidth,
+        podiumVisible: (() => {
+          const front = document.querySelector('.hero-mark-podium path:nth-of-type(2)').getBoundingClientRect();
+          const ticker = document.querySelector('.hero-ticker').getBoundingClientRect();
+          return front.height > 30 && front.top < ticker.top - 25;
+        })(),
       }));
       await page.screenshot({ path: path.join(output, `${label}.png`), animations: 'disabled' });
       console.log(JSON.stringify({ label, status: response.status(), ...state }));
+      if (response.status() !== 200 || !state.markLoaded || state.overflow || !state.podiumVisible) {
+        throw new Error(`${label}: hero smoke check failed`);
+      }
       await page.close();
     }
   } finally {

@@ -29,6 +29,7 @@ const titles=['Estrategia & Research','Estructuración Empresarial','Diseño & M
   check(`${label}: all images loaded`,dimensions.images);
   check(`${label}: updated official logo`,await page.locator('.brand-image').getAttribute('alt')==='ESCALA — Business Solutions S.A.S.'&&(await page.locator('.brand-image').getAttribute('src')).includes('escala-logo-sas.png'));
   check(`${label}: supplied mark leads the 3D hero`,await page.locator('.hero-mark-world').count()===1&&await page.locator('.hero-mark-slice').count()===11&&await page.locator('.hero-mark-face').getAttribute('src').then(src=>src.includes('escala-symbol.png'))&&await page.locator('.hero-image').count()===0);
+  check(`${label}: podium front is visible above ticker`,await page.locator('.hero-mark-podium path:nth-of-type(2)').evaluate(e=>{const front=e.getBoundingClientRect();const ticker=document.querySelector('.hero-ticker').getBoundingClientRect();return front.height>30&&front.top<ticker.top-25;}));
   check(`${label}: single h1`,await page.locator('h1').count()===1);
   check(`${label}: one active service`,await page.locator('.service-content h3').count()===1);
   check(`${label}: seven needs available`,await page.getByRole('tab').count()===7);
