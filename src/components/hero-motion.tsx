@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 const route = "M 178 610 C 285 610 319 523 352 472 S 416 329 503 331 S 617 436 680 365 S 687 226 780 177 S 878 166 940 105";
 
 export function HeroMotion() {
@@ -59,21 +61,35 @@ export function HeroMotion() {
       <path d="M 112 656 H 353 M 815 624 H 960 M 821 637 H 915" stroke="#f4dce2" strokeOpacity=".2" />
       <path d="M 170 639 V 671 M 314 639 V 671 M 873 607 V 641" stroke="#f4dce2" strokeOpacity=".3" />
     </svg>
-    <div className="hero-depth-stage">
-      <div className="hero-depth-world">
-        <div className="hero-depth-halo" />
-        <div className="hero-depth-ring hero-depth-ring-back" />
-        <div className="hero-depth-ring hero-depth-ring-vertical" />
-        <div className="hero-depth-ring hero-depth-ring-diagonal" />
-        <div className="hero-depth-ring hero-depth-ring-front" />
-        <div className="hero-depth-orb">
-          <span className="hero-depth-orb-inner" />
-          <span className="hero-depth-orb-glint" />
-        </div>
-        <div className="hero-depth-satellite hero-depth-satellite-one" />
-        <div className="hero-depth-satellite hero-depth-satellite-two" />
-        <div className="hero-depth-satellite hero-depth-satellite-three" />
+    <div className="hero-mark-stage">
+      <div className="hero-mark-aura" />
+      <div className="hero-mark-floor hero-mark-floor-outer" />
+      <div className="hero-mark-floor hero-mark-floor-inner" />
+      <div className="hero-mark-world">
+        {Array.from({ length: 11 }, (_, index) =>
+          <Image
+            key={index}
+            src="/brand/escala-symbol.png"
+            width={6000}
+            height={6000}
+            sizes="(max-width: 760px) 440px, 600px"
+            alt=""
+            className="hero-mark-slice"
+            style={{ transform: `translateZ(${-76 + index * 8}px)` }}
+          />
+        )}
+        <Image
+          src="/brand/escala-symbol.png"
+          width={6000}
+          height={6000}
+          sizes="(max-width: 760px) 440px, 600px"
+          alt=""
+          className="hero-mark-face"
+          preload
+        />
       </div>
+      <div className="hero-mark-light hero-mark-light-one" />
+      <div className="hero-mark-light hero-mark-light-two" />
     </div>
     <div className="hero-motion-vignette" />
   </div>;

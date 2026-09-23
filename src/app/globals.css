@@ -60,22 +60,18 @@ svg { width: 24px; height: 24px; flex-shrink: 0; }
 .hero { position: relative; min-height: min(750px, calc(100svh - 94px)); color: #fff; background: #28151f; isolation: isolate; overflow: hidden; }
 .hero-motion { position: absolute; inset: 0; z-index: -1; overflow: hidden; pointer-events: none; background: radial-gradient(circle at 79% 42%, #71324a 0%, #3c1d2d 37%, #21141e 75%); }
 .hero-motion-map { position: absolute; width: min(1150px, 88vw); min-width: 760px; height: auto; right: -3%; top: 50%; transform: translateY(-50%); }
-.hero-depth-stage { position: absolute; width: min(760px, 62vw); height: 100%; top: 0; right: 0; perspective: 1000px; perspective-origin: 55% 48%; }
-.hero-depth-world { position: absolute; width: 540px; height: 540px; left: 51%; top: 50%; margin: -270px 0 0 -270px; transform-style: preserve-3d; transform: rotateX(-17deg) rotateY(-24deg) rotateZ(-11deg); animation: hero-camera 18s ease-in-out infinite alternate; }
-.hero-depth-halo { position: absolute; inset: -160px; border-radius: 50%; background: radial-gradient(circle, #b8899a33 0%, #9a5c7533 29%, #cc9db21a 39%, transparent 63%); transform: translateZ(-190px); filter: blur(10px); animation: hero-breathe 8s ease-in-out infinite alternate; }
-.hero-depth-ring { position: absolute; inset: 28px; border: 2px solid #f1d5df9e; border-radius: 50%; box-shadow: 0 0 23px #f4c4d45c, inset 0 0 22px #f4c4d43a; transform-style: preserve-3d; }
-.hero-depth-ring::before { content: ""; position: absolute; inset: 13px; border: 1px solid #f4dce254; border-radius: 50%; }
-.hero-depth-ring-back { transform: translateZ(-125px) scale(1.13); border-color: #d19bad60; box-shadow: 0 0 30px #d59cad30; }
-.hero-depth-ring-vertical { transform: rotateY(73deg) rotateX(13deg) translateZ(25px); border-width: 4px; border-color: #ffece1b0; box-shadow: 0 0 27px #ffe9e097, inset 0 0 24px #ffe9e05c; }
-.hero-depth-ring-diagonal { transform: rotateX(67deg) rotateY(-24deg) translateZ(44px); border-width: 3px; border-color: #e7adc1b8; animation: hero-ring-precess 16s ease-in-out infinite alternate; }
-.hero-depth-ring-front { transform: translateZ(160px) scale(.79); border-color: #fff0e3bf; border-width: 3px; box-shadow: 0 0 29px #ffe0de91, inset 0 0 25px #ffe0de57; }
-.hero-depth-orb { position: absolute; width: 280px; height: 280px; top: 130px; left: 130px; border-radius: 50%; transform: translateZ(58px); background: radial-gradient(circle at 30% 24%, #fff5e9 0%, #f6dbe0 7%, #d5a4b4 22%, #9b526d 47%, #57243c 72%, #2a1426 100%); box-shadow: inset -20px -25px 45px #1d0b20b8, inset 8px 6px 28px #fff4ed9c, 0 24px 65px #180711a6, 0 0 100px #c6849e9c; animation: hero-orb-hover 7s ease-in-out infinite alternate; }
-.hero-depth-orb-inner { position: absolute; inset: 14px; border: 1px solid #fff3e867; border-radius: 50%; transform: rotate(-28deg) scaleY(.57); box-shadow: 0 0 20px #fff2e75e; }
-.hero-depth-orb-glint { position: absolute; width: 90px; height: 47px; top: 32px; left: 55px; border-radius: 50%; background: #fffaf3a8; filter: blur(24px); transform: rotate(-27deg); }
-.hero-depth-satellite { position: absolute; width: 13px; height: 13px; border-radius: 50%; background: #fff4e7; box-shadow: 0 0 0 7px #f5dce344, 0 0 25px 8px #f2c2d6; }
-.hero-depth-satellite-one { top: 91px; left: 126px; transform: translateZ(168px); }
-.hero-depth-satellite-two { top: 398px; left: 471px; transform: translateZ(80px) scale(.72); }
-.hero-depth-satellite-three { top: 62px; left: 376px; transform: translateZ(-85px) scale(.56); }
+.hero-mark-stage { position: absolute; width: min(760px, 59vw); height: 100%; top: 0; right: 1%; perspective: 1250px; perspective-origin: 54% 45%; }
+.hero-mark-aura { position: absolute; width: 760px; height: 760px; left: 53%; top: 48%; transform: translate(-50%, -50%); border-radius: 50%; background: radial-gradient(circle, #d5a6b456 0%, #af6f8740 28%, #83405729 45%, transparent 69%); filter: blur(9px); animation: hero-breathe 9s ease-in-out infinite alternate; }
+.hero-mark-world { position: absolute; width: 570px; height: 570px; left: 53%; top: 46%; margin: -285px 0 0 -285px; transform-style: preserve-3d; transform: rotateX(5deg) rotateY(-24deg) rotateZ(-3deg); animation: hero-camera 13s ease-in-out infinite alternate; }
+.hero-mark-slice, .hero-mark-face { position: absolute; display: block; width: 100%; height: 100%; object-fit: contain; backface-visibility: hidden; }
+.hero-mark-slice { filter: brightness(.36) sepia(.7) saturate(1.4) drop-shadow(0 0 2px #f0b6c9); opacity: .96; }
+.hero-mark-face { transform: translateZ(18px); filter: drop-shadow(0 4px 2px #fff5ea79) drop-shadow(22px 28px 29px #1a091b9c); }
+.hero-mark-floor { position: absolute; left: 53%; top: 86%; border: 1px solid #f4d4df85; border-radius: 50%; transform: translate(-50%, -50%) rotateX(73deg); box-shadow: 0 0 24px #ecc2d354, inset 0 0 35px #d59cad38; }
+.hero-mark-floor-outer { width: 650px; height: 260px; }
+.hero-mark-floor-inner { width: 420px; height: 170px; border-color: #fff0e0ad; box-shadow: 0 0 34px #ffe1da8c; }
+.hero-mark-light { position: absolute; width: 6px; height: 6px; border-radius: 50%; background: #fff8ea; box-shadow: 0 0 0 6px #ffdde336, 0 0 25px 8px #ffe4dd; animation: hero-node-pulse 5s ease-in-out infinite; }
+.hero-mark-light-one { top: 16%; left: 20%; }
+.hero-mark-light-two { top: 72%; right: 9%; animation-delay: -2.5s; }
 .hero-motion-grid { opacity: .65; }
 .hero-motion-aura { animation: hero-breathe 9s ease-in-out infinite alternate; transform-origin: 642px 380px; }
 .hero-motion-sheets { animation: hero-float 12s ease-in-out infinite alternate; transform-origin: 642px 380px; }
@@ -120,9 +116,7 @@ svg { width: 24px; height: 24px; flex-shrink: 0; }
 @keyframes hero-route-flow { to { stroke-dashoffset: -256; } }
 @keyframes hero-node-pulse { 0%, 100% { transform: scale(.78); opacity: .55; } 35% { transform: scale(1.22); opacity: 1; } }
 @keyframes hero-sweep { 0%, 15% { transform: rotate(18deg) translateX(28vw); opacity: 0; } 48% { opacity: 1; } 85%, 100% { transform: rotate(18deg) translateX(-62vw); opacity: 0; } }
-@keyframes hero-camera { from { transform: rotateX(-22deg) rotateY(-31deg) rotateZ(-13deg) translateY(10px); } to { transform: rotateX(-11deg) rotateY(-9deg) rotateZ(-5deg) translateY(-10px); } }
-@keyframes hero-ring-precess { from { transform: rotateX(67deg) rotateY(-24deg) translateZ(44px); } to { transform: rotateX(52deg) rotateY(16deg) translateZ(72px); } }
-@keyframes hero-orb-hover { from { transform: translateZ(50px) translateY(8px); } to { transform: translateZ(76px) translateY(-8px); } }
+@keyframes hero-camera { from { transform: rotateX(8deg) rotateY(-31deg) rotateZ(-5deg) translateY(9px); } to { transform: rotateX(-4deg) rotateY(-8deg) rotateZ(2deg) translateY(-13px); } }
 
 .solutions-section { padding-block: 103px 115px; }
 .section-heading { display: flex; justify-content: space-between; align-items: flex-end; gap: 35px; margin-bottom: 55px; }
@@ -275,6 +269,10 @@ svg { width: 24px; height: 24px; flex-shrink: 0; }
   .contact-channels { max-width: 520px; }
 }
 
+@media (min-width: 761px) and (max-width: 1099px) {
+  .hero-motion-vignette { background: linear-gradient(90deg, #1c111bfa 0%, #24131df2 27%, #291721d7 55%, #2b152050 83%), linear-gradient(0deg, #20121b9c, transparent 40%); }
+}
+
 @media (max-width: 760px) {
   :root { --gutter: 23px; }
   .header-inner { padding-block: 8px; gap: 12px; }
@@ -282,11 +280,11 @@ svg { width: 24px; height: 24px; flex-shrink: 0; }
   .navigation.is-open { flex-direction: column; align-items: stretch; gap: 0; }
   .navigation > a, .nav-button { font-size: 15px; min-height: 52px; border-bottom: 1px solid #ffffff33; }
   .header-contact { align-self: flex-start; margin-top: 7px; }
-  .hero { min-height: 680px; }
+  .hero { min-height: 795px; }
   .hero-motion-map { width: 850px; min-width: 850px; right: -180px; top: 250px; }
-  .hero-depth-stage { width: 540px; height: 540px; top: 8px; right: -62px; transform: scale(.76); transform-origin: top right; }
+  .hero-mark-stage { width: 570px; height: 570px; top: 28px; right: -12px; transform: scale(.62); transform-origin: top right; }
   .hero-motion-vignette { background: linear-gradient(0deg, #1d111af7 0%, #21131cdb 34%, #2b18248c 70%, #26141e70 100%); }
-  .hero-inner { min-height: 614px; align-items: flex-end; padding-block: 72px 66px; }
+  .hero-inner { min-height: 729px; align-items: flex-end; padding-block: 72px 66px; }
   .hero .eyebrow { font-size: 11px; margin-bottom: 22px; }
   .hero h1 { font-size: clamp(51px, 12vw, 73px); line-height: 1.08; }
   .hero-description { max-width: 370px; font-size: 20px; margin-top: 25px; }

@@ -171,3 +171,9 @@ La compilación local de producción terminó correctamente. La suite funcional 
 El usuario pidió que la animación inicial tuviera mayor sensación tridimensional e impacto visual. Se añadió una escultura orbital en CSS 3D con perspectiva real, anillos a cuatro profundidades, esfera sombreada, satélites y movimiento lento de cámara. Se conservó la ruta vectorial anterior como fondo y una veladura para la lectura. No se añadieron videos, paquetes ni datos comerciales ficticios. La escena sigue siendo decorativa para tecnologías de asistencia y se detiene con movimiento reducido.
 
 La compilación de producción y ESLint terminaron correctamente. La suite pasó 155 comprobaciones en cinco tamaños, incluidas las nuevas verificaciones de movimiento de cámara y movimiento reducido, sin desbordamiento ni errores de navegador. Se revisaron las capturas de escritorio y móvil en `artifacts/qa-hero-3d-final/`.
+
+## 2026-09-23 — Símbolo oficial como protagonista 3D
+
+El usuario suministró `ESCALA (4).png`, una silueta blanca con fondo transparente. Se copió sin alteraciones a `public/brand/escala-symbol.png`; los hashes SHA-256 de origen y copia coincidieron. Sustituye la esfera abstracta de la portada. Varias instancias optimizadas de la misma imagen crean una extrusión perceptible en perspectiva, con un frente blanco, laterales borgoña, iluminación ambiental y giro lento. Se conservó la ruta editorial de fondo. En móvil se dio más espacio vertical al símbolo y se reforzó la veladura en tableta para preservar la lectura. La cabecera conserva el logo completo con nombre y descriptor.
+
+La compilación local de producción pasó. La suite funcional pasó 155 comprobaciones en cinco tamaños, sin desbordamiento ni errores de navegador; capturas revisadas en `artifacts/qa-hero-mark-final/`. El formulario se simuló durante la suite y no se enviaron solicitudes reales.
