@@ -59,19 +59,21 @@ svg { width: 24px; height: 24px; flex-shrink: 0; }
 
 .hero { position: relative; min-height: min(750px, calc(100svh - 94px)); color: #fff; background: #28151f; isolation: isolate; overflow: hidden; }
 .hero-motion { position: absolute; inset: 0; z-index: 0; overflow: hidden; pointer-events: none; background: radial-gradient(circle at 75% 43%, #4c2b3b 0%, #2a1a25 48%, #20151e 86%); }
-.hero-mark-stage { position: absolute; width: min(640px, 48vw); height: calc(100% - 85px); top: 0; right: 6%; perspective: 1400px; perspective-origin: 50% 45%; }
-.hero-mark-aura { position: absolute; width: 520px; height: 520px; left: 54%; top: 47%; transform: translate(-50%, -50%); border-radius: 50%; background: radial-gradient(circle, #b7779140, #8b4d6722 42%, transparent 70%); filter: blur(20px); }
-.hero-mark-podium { position: absolute; width: 520px; height: 102px; left: 54%; bottom: 80px; transform: translateX(-50%); filter: drop-shadow(0 14px 15px #110c14a0); }
-.hero-mark-control { position: absolute; display: block; width: 380px; height: 380px; left: 54%; top: 48%; margin: -190px 0 0 -190px; padding: 0; border: 0; background: transparent; pointer-events: auto; transform-style: preserve-3d; }
+.hero-mark-stage { position: absolute; width: min(720px, 50vw); height: calc(100% - 85px); top: 0; right: 5%; perspective: 1200px; perspective-origin: 50% 45%; }
+.hero-mark-aura { position: absolute; width: 590px; height: 590px; left: 54%; top: 47%; transform: translate(-50%, -50%); border-radius: 50%; background: radial-gradient(circle, #c892a74b 0%, #9a57732b 42%, transparent 72%); filter: blur(22px); animation: hero-light 10s ease-in-out infinite; }
+.hero-mark-podium { position: absolute; width: 580px; height: 114px; left: 54%; bottom: 71px; transform: translateX(-50%); filter: drop-shadow(0 18px 18px #110c14a0); }
+.hero-mark-shadow { position: absolute; width: 260px; height: 28px; left: 54%; bottom: 135px; margin-left: -130px; border-radius: 50%; background: radial-gradient(ellipse, #180e1bb8 0%, #180e1b62 48%, transparent 75%); filter: blur(5px); animation: hero-shadow 10s ease-in-out infinite; }
+.hero-mark-control { position: absolute; display: block; width: 450px; height: 450px; left: 54%; top: 46%; margin: -225px 0 0 -225px; padding: 0; border: 0; background: transparent; pointer-events: auto; transform-style: preserve-3d; }
 .hero-mark-control:focus-visible { outline: 2px solid #fff; outline-offset: 2px; border-radius: 22px; }
-.hero-mark-float { position: relative; display: block; width: 100%; height: 100%; transform-style: preserve-3d; animation: hero-float 7s ease-in-out infinite alternate; }
+.hero-mark-float { position: relative; display: block; width: 100%; height: 100%; transform-style: preserve-3d; animation: hero-showcase 10s ease-in-out infinite; }
 .hero-mark-control:is(:hover, :focus-visible) .hero-mark-float { animation-play-state: paused; }
 .hero-mark-world { position: relative; display: block; width: 100%; height: 100%; transform-style: preserve-3d; transition: transform 220ms ease-out; }
 .hero-mark-world.is-spinning { transition: transform 1350ms cubic-bezier(.28,.6,.18,1); }
 .hero-mark-slice, .hero-mark-face, .hero-mark-back { position: absolute; display: block; width: 100%; height: 100%; object-fit: contain; backface-visibility: hidden; }
-.hero-mark-slice { filter: brightness(.38); opacity: .92; }
-.hero-mark-face { transform: translateZ(8px); filter: drop-shadow(8px 12px 12px #180d18a8); }
-.hero-mark-back { transform: translateZ(-30px) rotateY(180deg); filter: drop-shadow(8px 12px 12px #180d18a8); }
+.hero-mark-slice { filter: brightness(.44) sepia(.15) saturate(.55); opacity: .95; }
+.hero-mark-face { transform: translateZ(16px); filter: drop-shadow(11px 15px 14px #180d18a8); }
+.hero-mark-back { transform: translateZ(-55px) rotateY(180deg); filter: drop-shadow(11px 15px 14px #180d18a8); }
+.hero-mark-sheen { position: absolute; inset: 0; transform: translateZ(17px); backface-visibility: hidden; -webkit-mask: url('/brand/escala-symbol.png') center / contain no-repeat; mask: url('/brand/escala-symbol.png') center / contain no-repeat; background: linear-gradient(105deg, transparent 34%, #9a5e734a 49%, transparent 64%); background-size: 260% 100%; animation: hero-sheen 10s ease-in-out infinite; }
 .hero-motion-vignette { position: absolute; inset: 0; background: linear-gradient(90deg, #1e141cf7 0%, #211720d9 30%, #281a26aa 49%, transparent 73%); }
 .hero-inner { position: relative; z-index: 1; pointer-events: none; min-height: min(665px, calc(100svh - 179px)); display: flex; align-items: center; justify-content: space-between; gap: 40px; padding-block: 68px 45px; }
 .hero-copy { pointer-events: auto; }
@@ -94,7 +96,25 @@ svg { width: 24px; height: 24px; flex-shrink: 0; }
 .hero-ticker-group span { position: relative; flex: none; padding-inline: clamp(28px, 4.3vw, 68px); font-size: clamp(16px, 1.55vw, 22px); font-weight: 600; white-space: nowrap; text-transform: uppercase; letter-spacing: .065em; }
 .hero-ticker-group span::after { content: "◆"; position: absolute; right: -3px; top: 50%; transform: translateY(-50%); color: #b994a1; font-size: 7px; }
 @keyframes ticker-roll { to { transform: translateX(-50%); } }
-@keyframes hero-float { from { transform: translateY(2px) rotateY(-9deg); } to { transform: translateY(-8px) rotateY(9deg); } }
+@keyframes hero-showcase {
+  0% { transform: translateY(3px) rotateY(-18deg); }
+  18% { transform: translateY(-8px) rotateY(10deg); }
+  56% { transform: translateY(-15px) rotateY(220deg); }
+  82% { transform: translateY(-8px) rotateY(360deg); }
+  100% { transform: translateY(3px) rotateY(342deg); }
+}
+@keyframes hero-light {
+  0%, 100% { opacity: .62; transform: translate(-54%, -50%) scale(.86); }
+  45% { opacity: 1; transform: translate(-46%, -50%) scale(1.08); }
+}
+@keyframes hero-shadow {
+  0%, 100% { transform: scaleX(.9); opacity: .55; }
+  38%, 68% { transform: scaleX(.45); opacity: .82; }
+}
+@keyframes hero-sheen {
+  0%, 14% { background-position: 100% 50%; }
+  45%, 100% { background-position: 0% 50%; }
+}
 
 .solutions-section { padding-block: 103px 115px; }
 .section-heading { display: flex; justify-content: space-between; align-items: flex-end; gap: 35px; margin-bottom: 55px; }
@@ -247,7 +267,7 @@ svg { width: 24px; height: 24px; flex-shrink: 0; }
 }
 
 @media (min-width: 761px) and (max-width: 1099px) {
-  .hero-mark-stage { width: 640px; right: -130px; transform: scale(.75); transform-origin: top right; }
+  .hero-mark-stage { width: 720px; right: -92px; transform: scale(.65); transform-origin: top right; }
   .hero-motion-vignette { background: linear-gradient(90deg, #1e141cfa 0%, #211720ee 31%, #281a26b8 54%, transparent 82%); }
 }
 
@@ -259,7 +279,7 @@ svg { width: 24px; height: 24px; flex-shrink: 0; }
   .navigation > a, .nav-button { font-size: 15px; min-height: 52px; border-bottom: 1px solid #ffffff33; }
   .header-contact { align-self: flex-start; margin-top: 7px; }
   .hero { min-height: 850px; }
-  .hero-mark-stage { width: 640px; height: 490px; top: 20px; right: -8px; transform: scale(.6); transform-origin: top right; }
+  .hero-mark-stage { width: 720px; height: 490px; top: 20px; right: -8px; transform: scale(.54); transform-origin: top right; }
   .hero-mark-podium { bottom: -10px; }
   .hero-motion-vignette { background: linear-gradient(0deg, #211720f6 0%, #241822da 35%, #24182278 60%, #2418222e 100%); }
   .hero-inner { min-height: 780px; align-items: flex-end; padding-block: 72px 45px; }
@@ -324,7 +344,7 @@ svg { width: 24px; height: 24px; flex-shrink: 0; }
   .menu-toggle { padding-left: 10px; padding-right: 4px; }
   .hero { min-height: 790px; }
   .hero-inner { min-height: 724px; }
-  .hero-mark-stage { top: 10px; right: -3px; transform: scale(.5); }
+  .hero-mark-stage { top: 10px; right: -3px; transform: scale(.45); }
   .hero h1 { font-size: 45px; }
   .hero-description { font-size: 18px; }
   .service-art { min-height: 270px; }

@@ -34,6 +34,7 @@ export function HeroMotion() {
         <path d="M10 44H550L535 94H25L10 44Z" fill="url(#podium-front)" stroke="#a66b80" strokeOpacity=".52" />
         <path d="M21 49H539" stroke="#e4b7c4" strokeOpacity=".42" />
       </svg>
+      <div className="hero-mark-shadow" aria-hidden="true" />
       <button
         type="button"
         className="hero-mark-control"
@@ -54,7 +55,7 @@ export function HeroMotion() {
               if (event.propertyName === "transform") setSpinning(false);
             }}
           >
-            {Array.from({ length: 6 }, (_, index) =>
+            {Array.from({ length: 10 }, (_, index) =>
               <Image
                 key={index}
                 src="/brand/escala-symbol.png"
@@ -63,7 +64,7 @@ export function HeroMotion() {
                 sizes="(max-width: 760px) 320px, 390px"
                 alt=""
                 className="hero-mark-slice"
-                style={{ transform: `translateZ(${-24 + index * 5}px)` }}
+                style={{ transform: `translateZ(${-48 + index * 6}px)` }}
               />
             )}
             <Image
@@ -83,6 +84,7 @@ export function HeroMotion() {
               className="hero-mark-face"
               preload
             />
+            <span className="hero-mark-sheen" aria-hidden="true" />
           </span>
         </span>
       </button>

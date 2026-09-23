@@ -197,3 +197,9 @@ La compilación local de producción terminó correctamente. La suite funcional 
 Tras aprobar la dirección visual más sobria, el usuario pidió que la pieza tuviera movimiento e interacción. El símbolo oficial ahora oscila lentamente sin desplazarse de la tarima, se inclina ligeramente con el cursor y gira 360° al hacer clic, tocarlo o activarlo con teclado. Una cara posterior del mismo PNG mantiene la marca legible durante el giro; los cantos son neutros. La composición editorial, el tamaño y la base baja permanecen. Se respeta `prefers-reduced-motion` y no se agregó ninguna dependencia.
 
 La compilación y ESLint finalizaron correctamente. La suite funcional pasó 158 comprobaciones en cinco tamaños, sin errores de navegador ni desbordamiento, con capturas en `artifacts/qa-hero-interactive/`. La prueba focalizada confirmó inclinación con cursor, vuelta con clic y teclado, y respuesta al toque en móvil. El formulario siguió simulado en la suite, sin envíos reales.
+
+## 2026-09-23 — Giro automático de exhibición
+
+El usuario señaló que la interacción anterior pasaba inadvertida y la portada seguía pareciendo sencilla. Se aumentó la escala de la pieza sin invadir el texto, se profundizó la extrusión con más capas del PNG oficial y se añadió un giro autónomo de 360° cada 10 segundos. Una luz ambiental, un reflejo en el frente y la sombra de contacto sobre la tarima acompañan el mismo ciclo; no se añadieron órbitas, mapas, neón ni otros adornos rechazados antes. Pasar el cursor pausa el giro para que el control manual sea predecible. En móvil la escena mantiene la acción principal visible.
+
+Compilación y ESLint correctos. La prueba funcional pasó 158 verificaciones en cinco tamaños sin errores de navegador ni desbordamiento (`artifacts/qa-hero-showcase/`). La prueba focalizada constató giro autónomo, respuesta al cursor, clic, teclado y toque. El PNG oficial no se modificó y no se agregaron paquetes.
