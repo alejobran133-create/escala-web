@@ -16,71 +16,65 @@ fs.mkdirSync(output, { recursive: true });
     for (const [label, width, height] of [['desktop', 1440, 900], ['mobile', 390, 844], ['small-mobile', 320, 740]]) {
       const page = await browser.newPage({ viewport: { width, height }, reducedMotion: 'reduce' });
       const response = await page.goto(baseURL, { waitUntil: 'domcontentloaded', timeout: 30000 });
-      const mark = page.locator('.hero-mark-face');
+      const mark = page.locator('.hero-artifact-symbol');
+      const environment = page.locator('.hero-environment-image');
       await mark.waitFor({ state: 'visible', timeout: 15000 });
-      await mark.evaluate(image => Promise.race([
+      await Promise.all([mark, environment].map(locator => locator.evaluate(image => Promise.race([
         image.decode(),
-        new Promise((_, reject) => setTimeout(() => reject(new Error('Image decode timeout')), 15000)),
-      ]));
+        new Promise((_, reject) => setTimeout(() => reject(new Error('Image decode timeout')), 60000)),
+      ]))));
       const state = await page.evaluate(() => ({
-        markLoaded: document.querySelector('.hero-mark-face')?.naturalWidth > 0,
+        markLoaded: document.querySelector('.hero-artifact-symbol')?.naturalWidth > 0,
+        environmentLoaded: document.querySelector('.hero-environment-image')?.naturalWidth > 0,
         overflow: document.documentElement.scrollWidth > innerWidth,
-        podiumVisible: (() => {
-          const front = document.querySelector('.hero-mark-podium path:nth-of-type(2)').getBoundingClientRect();
+        artifactVisible: (() => {
+          const artifact = document.querySelector('.hero-artifact-front').getBoundingClientRect();
           const ticker = document.querySelector('.hero-ticker').getBoundingClientRect();
-          return front.height > 20 && front.top < ticker.top - 20;
+          return artifact.width > 150 && artifact.height > 200 && artifact.top < ticker.top - 100;
         })(),
       }));
       await page.screenshot({ path: path.join(output, `${label}.png`), animations: 'disabled' });
       console.log(JSON.stringify({ label, status: response.status(), ...state }));
-      if (response.status() !== 200 || !state.markLoaded || state.overflow || !state.podiumVisible) {
+      if (response.status() !== 200 || !state.markLoaded || !state.environmentLoaded || state.overflow || !state.artifactVisible) {
         throw new Error(`${label}: hero smoke check failed`);
       }
       await page.close();
     }
 
-    const interactivePage = await browser.newPage({ viewport: { width: 1440, height: 900 } });
-    await interactivePage.goto(baseURL, { waitUntil: 'domcontentloaded', timeout: 30000 });
-    await interactivePage.waitForTimeout(1200);
-    const control = interactivePage.getByRole('button', { name: 'Girar el símbolo tridimensional de ESCALA' });
-    const world = interactivePage.locator('.hero-mark-world');
-    const showcase = interactivePage.locator('.hero-mark-float');
-    const firstShowcaseFrame = await showcase.evaluate(element => getComputedStyle(element).transform);
-    await interactivePage.waitForTimeout(900);
-    const secondShowcaseFrame = await showcase.evaluate(element => getComputedStyle(element).transform);
-    const autoRotation = firstShowcaseFrame !== secondShowcaseFrame;
-    await interactivePage.waitForTimeout(2400);
-    await interactivePage.screenshot({ path: path.join(output, 'desktop-auto-turn.png') });
-    await control.hover({ position: { x: 280, y: 120 } });
+    const page = await browser.newPage({ viewport: { width: 1440, height: 900 } });
+    await page.goto(baseURL, { waitUntil: 'domcontentloaded', timeout: 30000 });
+    await page.waitForTimeout(1200);
+    const control = page.getByRole('button', { name: 'Activar la escena de ESCALA' });
+    const environment = page.locator('.hero-environment');
+    const artifact = page.locator('.hero-artifact-object');
+    const firstFrame = await environment.evaluate(element => getComputedStyle(element).transform);
+    await page.waitForTimeout(750);
+    const environmentMoves = firstFrame !== await environment.evaluate(element => getComputedStyle(element).transform);
+    await page.screenshot({ path: path.join(output, 'desktop-moving.png') });
+    await control.hover({ position: { x: 230, y: 115 } });
     const bounds = await control.boundingBox();
-    await interactivePage.mouse.move(bounds.x + 260, bounds.y + 90, { steps: 4 });
-    await interactivePage.waitForTimeout(100);
-    const tilt = await world.getAttribute('style');
+    await page.mouse.move(bounds.x + 205, bounds.y + 90, { steps: 4 });
+    await page.waitForTimeout(100);
+    const tilt = await artifact.getAttribute('style');
     const pointerTilt = !!tilt && !tilt.includes('rotateX(0deg) rotateY(0deg)');
-    const hoveredFrame = await showcase.evaluate(element => getComputedStyle(element).transform);
-    await interactivePage.waitForTimeout(450);
-    const hoverRotation = hoveredFrame !== await showcase.evaluate(element => getComputedStyle(element).transform);
     await control.click();
-    await interactivePage.waitForTimeout(420);
-    const midSpin = await world.evaluate(element => getComputedStyle(element).transform);
-    await interactivePage.screenshot({ path: path.join(output, 'desktop-spinning.png') });
-    await interactivePage.waitForTimeout(1250);
-    const clickTurn = await world.evaluate(element => !element.classList.contains('is-spinning') && element.style.transform.includes('360deg'));
+    const clickPulse = await control.evaluate(element => element.classList.contains('is-active'));
+    await page.waitForTimeout(950);
     await control.focus();
-    await interactivePage.keyboard.press('Enter');
-    await interactivePage.waitForTimeout(1450);
-    const keyboardTurn = await world.evaluate(element => element.style.transform.includes('720deg'));
-    console.log(JSON.stringify({ label: 'interaction-desktop', autoRotation, hoverRotation, pointerTilt, midSpin, clickTurn, keyboardTurn }));
-    if (!autoRotation || !hoverRotation || !pointerTilt || !clickTurn || !keyboardTurn || midSpin === 'none') throw new Error('Desktop interaction failed');
-    await interactivePage.close();
+    await page.keyboard.press('Enter');
+    const keyboardPulse = await control.evaluate(element => element.classList.contains('is-active'));
+    console.log(JSON.stringify({ label: 'interaction-desktop', environmentMoves, pointerTilt, clickPulse, keyboardPulse }));
+    if (!environmentMoves || !pointerTilt || !clickPulse || !keyboardPulse) throw new Error('Desktop interaction failed');
+    await page.close();
 
     const touchPage = await browser.newPage({ viewport: { width: 390, height: 844 }, hasTouch: true, isMobile: true });
     await touchPage.goto(baseURL, { waitUntil: 'domcontentloaded', timeout: 30000 });
     await touchPage.waitForTimeout(1200);
-    await touchPage.getByRole('button', { name: 'Girar el símbolo tridimensional de ESCALA' }).tap();
-    const touchTurn = await touchPage.locator('.hero-mark-world').evaluate(element => element.style.transform.includes('360deg'));
-    console.log(JSON.stringify({ label: 'interaction-mobile', touchTurn }));
-    if (!touchTurn) throw new Error('Mobile tap did not rotate the mark');
+    const touchControl = touchPage.getByRole('button', { name: 'Activar la escena de ESCALA' });
+    await touchControl.tap();
+    const touchPulse = await touchControl.evaluate(element => element.classList.contains('is-active'));
+    console.log(JSON.stringify({ label: 'interaction-mobile', touchPulse }));
+    if (!touchPulse) throw new Error('Mobile tap did not activate the scene');
     await touchPage.close();
   } finally {
     await browser.close();

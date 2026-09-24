@@ -28,8 +28,8 @@ const titles=['Estrategia & Research','Estructuración Empresarial','Diseño & M
   check(`${label}: no horizontal overflow`,dimensions.scroll<=width);
   check(`${label}: all images loaded`,dimensions.images);
   check(`${label}: updated official logo`,await page.locator('.brand-image').getAttribute('alt')==='ESCALA — Business Solutions S.A.S.'&&(await page.locator('.brand-image').getAttribute('src')).includes('escala-logo-sas.png'));
-  check(`${label}: supplied mark leads the 3D hero`,await page.locator('.hero-mark-world').count()===1&&await page.locator('.hero-mark-slice').count()===10&&await page.locator('.hero-mark-face').getAttribute('src').then(src=>src.includes('escala-symbol.png'))&&await page.locator('.hero-motion-map,.hero-image,.hero-mark-spotlight').count()===0);
-  check(`${label}: podium front is visible above ticker`,await page.locator('.hero-mark-podium path:nth-of-type(2)').evaluate(e=>{const front=e.getBoundingClientRect();const ticker=document.querySelector('.hero-ticker').getBoundingClientRect();return front.height>20&&front.top<ticker.top-20;}));
+  check(`${label}: official symbol and futuristic architecture in hero`,await page.locator('.hero-artifact-symbol').count()===1&&await page.locator('.hero-artifact-symbol').getAttribute('src').then(src=>src.includes('escala-symbol.png'))&&await page.locator('.hero-environment-image').getAttribute('src').then(src=>src.includes('hero-future-architecture.png'))&&await page.locator('.hero-mark-world,.hero-mark-podium').count()===0);
+  check(`${label}: artifact is visible above ticker`,await page.locator('.hero-artifact-front').evaluate(e=>{const art=e.getBoundingClientRect();const ticker=document.querySelector('.hero-ticker').getBoundingClientRect();return art.width>150&&art.height>200&&art.top<ticker.top-100;}));
   check(`${label}: single h1`,await page.locator('h1').count()===1);
   check(`${label}: one active service`,await page.locator('.service-content h3').count()===1);
   check(`${label}: seven needs available`,await page.getByRole('tab').count()===7);
@@ -53,13 +53,13 @@ const titles=['Estrategia & Research','Estructuración Empresarial','Diseño & M
  check('Ticker has all five disciplines',await page.locator('.hero-ticker-group').first().locator('span').count()===5);
  check('Ticker has no pause control',await page.locator('.ticker-toggle').count()===0);
  await page.emulateMedia({reducedMotion:'no-preference'});
- check('Hero 3D mark rotates when motion is allowed',await page.locator('.hero-mark-float').evaluate(e=>getComputedStyle(e).animationName==='hero-showcase'));
+ check('Hero environment drifts when motion is allowed',await page.locator('.hero-environment').evaluate(e=>getComputedStyle(e).animationName==='hero-environment-drift'));
  check('Ticker rolls when motion is allowed',await page.locator('.hero-ticker-track').evaluate(e=>getComputedStyle(e).animationName==='ticker-roll'));
  const firstPosition=await page.locator('.hero-ticker-track').evaluate(e=>getComputedStyle(e).transform);
  await page.waitForTimeout(180);
  check('Ticker keeps moving',await page.locator('.hero-ticker-track').evaluate((e,previous)=>getComputedStyle(e).transform!==previous,firstPosition));
  await page.emulateMedia({reducedMotion:'reduce'});
- check('Hero 3D mark respects reduced motion',await page.locator('.hero-mark-float').evaluate(e=>getComputedStyle(e).animationName==='none'));
+ check('Hero environment respects reduced motion',await page.locator('.hero-environment').evaluate(e=>getComputedStyle(e).animationName==='none'));
  check('Ticker respects reduced motion',await page.locator('.hero-ticker-track').evaluate(e=>getComputedStyle(e).animationName==='none'));
  check('Preview noindex',(await page.locator('meta[name="robots"]').getAttribute('content')).includes('noindex'));
  await page.goto(baseURL,{waitUntil:'networkidle'});
