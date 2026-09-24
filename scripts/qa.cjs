@@ -28,8 +28,8 @@ const titles=['Estrategia & Research','Estructuración Empresarial','Diseño & M
   check(`${label}: no horizontal overflow`,dimensions.scroll<=width);
   check(`${label}: all images loaded`,dimensions.images);
   check(`${label}: updated official logo`,await page.locator('.brand-image').getAttribute('alt')==='ESCALA — Business Solutions S.A.S.'&&(await page.locator('.brand-image').getAttribute('src')).includes('escala-logo-sas.png'));
-  check(`${label}: official symbol and futuristic architecture in hero`,await page.locator('.hero-artifact-symbol').count()===1&&await page.locator('.hero-artifact-symbol').getAttribute('src').then(src=>src.includes('escala-symbol.png'))&&await page.locator('.hero-environment-image').getAttribute('src').then(src=>src.includes('hero-future-architecture.png'))&&await page.locator('.hero-mark-world,.hero-mark-podium').count()===0);
-  check(`${label}: artifact is visible above ticker`,await page.locator('.hero-artifact-front').evaluate(e=>{const art=e.getBoundingClientRect();const ticker=document.querySelector('.hero-ticker').getBoundingClientRect();return art.width>150&&art.height>200&&art.top<ticker.top-100;}));
+  check(`${label}: futuristic architecture in hero`,await page.locator('.hero-environment-image').getAttribute('src').then(src=>src.includes('hero-future-architecture.png')));
+  check(`${label}: no floating square or oversized symbol`,await page.locator('.hero-stage,.hero-artifact,.hero-artifact-symbol,.hero-mark-world,.hero-mark-podium').count()===0);
   check(`${label}: single h1`,await page.locator('h1').count()===1);
   check(`${label}: one active service`,await page.locator('.service-content h3').count()===1);
   check(`${label}: seven needs available`,await page.getByRole('tab').count()===7);
